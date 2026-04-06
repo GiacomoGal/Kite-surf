@@ -1,31 +1,45 @@
 import { Composition } from "remotion";
 import { KitesurfVideo } from "./compositions/KitesurfVideo";
+import { HighlightReel } from "./compositions/HighlightReel";
 import { sceneManifest } from "./data/scenes";
+import { highlightManifest } from "./data/highlight";
 
-// Calculate total duration from manifest (30fps)
 const FPS = 30;
-const TRANSITION_FRAMES = 15; // 0.5s per transition
 
 export const RemotionRoot: React.FC = () => {
-  const totalScenes = sceneManifest.scenes.length;
-  const totalDurationSec = sceneManifest.scenes.reduce(
-    (sum, s) => sum + s.duration,
-    0
+  const fullDurationFrames = Math.ceil(
+    sceneManifest.scenes.reduce((sum, s) => sum + s.duration, 0) * FPS
   );
-  // Total frames = scene durations - overlap from transitions
-  const totalFrames = Math.ceil(totalDurationSec * FPS);
+
+  const highlightDurationFrames = Math.ceil(
+    highlightManifest.clips.reduce((sum, c) => sum + c.duration, 0) * FPS
+  );
 
   return (
     <>
+      {/* Full video — all 32 scenes */}
       <Composition
         id="KitesurfVideo"
         component={KitesurfVideo}
-        durationInFrames={Math.max(totalFrames, 1)}
+        durationInFrames={Math.max(fullDurationFrames, 1)}
         fps={FPS}
         width={1080}
         height={1920}
         defaultProps={{
           scenes: sceneManifest.scenes,
+        }}
+      />
+
+      {/* Highlight reel — 60s curated edit */}
+      <Composition
+        id="HighlightReel"
+        component={HighlightReel}
+        durationInFrames={Math.max(highlightDurationFrames, 1)}
+        fps={FPS}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          clips: highlightManifest.clips,
         }}
       />
     </>
