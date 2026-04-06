@@ -1,0 +1,12 @@
+# Intermediate processing files
+scenes/
+upscaled/
+thumbnails/
+.tmp_frames/
+
+# Remotion bundled assets (copies of upscaled scenes)
+studio/public/scenes/
+studio/node_modules/
+studio/dist/
+
+# Keep raw and output
