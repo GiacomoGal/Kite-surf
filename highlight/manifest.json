@@ -1,0 +1,123 @@
+{
+  "total_clips": 13,
+  "total_duration": 54.18,
+  "clips": [
+    {
+      "file": "hl_01_kite_open.mp4",
+      "label": "kite_open",
+      "source": "video_4.mp4",
+      "start": 0.0,
+      "end": 3.0,
+      "speed": 1.0,
+      "duration": 3.0
+    },
+    {
+      "file": "hl_02_close_start.mp4",
+      "label": "close_start",
+      "source": "vifdeo_1.mp4",
+      "start": 0.5,
+      "end": 4.5,
+      "speed": 1.0,
+      "duration": 4.02
+    },
+    {
+      "file": "hl_03_first_ride.mp4",
+      "label": "first_ride",
+      "source": "vifdeo_1.mp4",
+      "start": 5.0,
+      "end": 9.0,
+      "speed": 1.0,
+      "duration": 4.02
+    },
+    {
+      "file": "hl_04_kite_cut1.mp4",
+      "label": "kite_cut1",
+      "source": "video_4.mp4",
+      "start": 7.0,
+      "end": 9.0,
+      "speed": 1.0,
+      "duration": 2.0
+    },
+    {
+      "file": "hl_05_mid_ride.mp4",
+      "label": "mid_ride",
+      "source": "vifdeo_1.mp4",
+      "start": 42.5,
+      "end": 47.5,
+      "speed": 1.0,
+      "duration": 5.01
+    },
+    {
+      "file": "hl_06_wide_panoramic.mp4",
+      "label": "wide_panoramic",
+      "source": "video_2.mp4",
+      "start": 0.0,
+      "end": 3.0,
+      "speed": 1.0,
+      "duration": 3.0
+    },
+    {
+      "file": "hl_07_intense_ride.mp4",
+      "label": "intense_ride",
+      "source": "vifdeo_1.mp4",
+      "start": 53.0,
+      "end": 57.0,
+      "speed": 1.0,
+      "duration": 4.02
+    },
+    {
+      "file": "hl_08_audience.mp4",
+      "label": "audience",
+      "source": "video_3.mp4",
+      "start": 0.5,
+      "end": 2.0,
+      "speed": 1.0,
+      "duration": 1.52
+    },
+    {
+      "file": "hl_09_wave_ride.mp4",
+      "label": "wave_ride",
+      "source": "vifdeo_1.mp4",
+      "start": 85.5,
+      "end": 90.5,
+      "speed": 1.0,
+      "duration": 5.01
+    },
+    {
+      "file": "hl_10_kite_spin.mp4",
+      "label": "kite_spin",
+      "source": "video_4.mp4",
+      "start": 12.0,
+      "end": 14.5,
+      "speed": 0.7,
+      "duration": 3.567
+    },
+    {
+      "file": "hl_11_the_jump.mp4",
+      "label": "the_jump",
+      "source": "vifdeo_1.mp4",
+      "start": 138.0,
+      "end": 144.0,
+      "speed": 0.6,
+      "duration": 9.99
+    },
+    {
+      "file": "hl_12_ride_out.mp4",
+      "label": "ride_out",
+      "source": "vifdeo_1.mp4",
+      "start": 147.0,
+      "end": 151.0,
+      "speed": 1.0,
+      "duration": 4.02
+    },
+    {
+      "file": "hl_13_kite_finale.mp4",
+      "label": "kite_finale",
+      "source": "video_4.mp4",
+      "start": 15.0,
+      "end": 19.0,
+      "speed": 0.8,
+      "duration": 5.0
+    }
+  ]
+}

@@ -10,3 +10,18 @@ studio/node_modules/
 studio/dist/
 
 # Keep raw and output
+
+# Frame estratti per l'analisi scene (rigenerabili)
+analysis/
+
+# Clip highlight tagliate da raw (rigenerabili da raw/ + manifest.json)
+highlight/*.mp4
+highlight_v2/*.mp4
+
+# Copie clip bundlate in Remotion
+studio/public/highlight/
+studio/public/highlight_v2/
+
+# Master full-res oltre il limite file GitHub (100MB): restano solo locali
+studio/out/kitesurf.mp4
+studio/out/highlight_v2.mp4

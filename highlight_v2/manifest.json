@@ -1,0 +1,159 @@
+{
+  "total_clips": 17,
+  "total_duration": 89.77,
+  "clips": [
+    {
+      "file": "hl2_01_s1_kite_establish.mp4",
+      "label": "s1_kite_establish",
+      "source": "video_4.mp4",
+      "start": 0.0,
+      "end": 2.5,
+      "speed": 1.0,
+      "duration": 2.5
+    },
+    {
+      "file": "hl2_02_s1_close_launch.mp4",
+      "label": "s1_close_launch",
+      "source": "vifdeo_1.mp4",
+      "start": 0.5,
+      "end": 4.0,
+      "speed": 0.5,
+      "duration": 6.933
+    },
+    {
+      "file": "hl2_03_s1_sferzata_1.mp4",
+      "label": "s1_sferzata_1",
+      "source": "vifdeo_1.mp4",
+      "start": 5.0,
+      "end": 7.0,
+      "speed": 0.5,
+      "duration": 3.933
+    },
+    {
+      "file": "hl2_04_s1_ride_away.mp4",
+      "label": "s1_ride_away",
+      "source": "vifdeo_1.mp4",
+      "start": 7.5,
+      "end": 10.5,
+      "speed": 1.0,
+      "duration": 3.0
+    },
+    {
+      "file": "hl2_05_s2_mid_ride.mp4",
+      "label": "s2_mid_ride",
+      "source": "vifdeo_1.mp4",
+      "start": 17.0,
+      "end": 21.0,
+      "speed": 1.0,
+      "duration": 4.02
+    },
+    {
+      "file": "hl2_06_s2_kite_aero.mp4",
+      "label": "s2_kite_aero",
+      "source": "video_4.mp4",
+      "start": 5.0,
+      "end": 8.5,
+      "speed": 0.7,
+      "duration": 4.933
+    },
+    {
+      "file": "hl2_07_s2_approach.mp4",
+      "label": "s2_approach",
+      "source": "vifdeo_1.mp4",
+      "start": 30.0,
+      "end": 34.0,
+      "speed": 1.0,
+      "duration": 4.02
+    },
+    {
+      "file": "hl2_08_s2_panoramic.mp4",
+      "label": "s2_panoramic",
+      "source": "video_2.mp4",
+      "start": 0.0,
+      "end": 3.5,
+      "speed": 1.0,
+      "duration": 3.51
+    },
+    {
+      "file": "hl2_09_s2_multi_kiters.mp4",
+      "label": "s2_multi_kiters",
+      "source": "vifdeo_1.mp4",
+      "start": 70.0,
+      "end": 75.0,
+      "speed": 1.0,
+      "duration": 5.01
+    },
+    {
+      "file": "hl2_10_s3_audience.mp4",
+      "label": "s3_audience",
+      "source": "video_3.mp4",
+      "start": 0.5,
+      "end": 2.0,
+      "speed": 1.0,
+      "duration": 1.52
+    },
+    {
+      "file": "hl2_11_s3_sferzata_2.mp4",
+      "label": "s3_sferzata_2",
+      "source": "vifdeo_1.mp4",
+      "start": 86.0,
+      "end": 89.0,
+      "speed": 0.5,
+      "duration": 5.9
+    },
+    {
+      "file": "hl2_12_s3_ride_alt.mp4",
+      "label": "s3_ride_alt",
+      "source": "video_2.mp4",
+      "start": 55.0,
+      "end": 59.0,
+      "speed": 1.0,
+      "duration": 4.02
+    },
+    {
+      "file": "hl2_13_s4_kite_spin.mp4",
+      "label": "s4_kite_spin",
+      "source": "video_4.mp4",
+      "start": 11.0,
+      "end": 15.0,
+      "speed": 0.5,
+      "duration": 7.9
+    },
+    {
+      "file": "hl2_14_s4_pre_flight.mp4",
+      "label": "s4_pre_flight",
+      "source": "vifdeo_1.mp4",
+      "start": 134.0,
+      "end": 138.0,
+      "speed": 0.5,
+      "duration": 7.933
+    },
+    {
+      "file": "hl2_15_s4_the_flight.mp4",
+      "label": "s4_the_flight",
+      "source": "vifdeo_1.mp4",
+      "start": 138.0,
+      "end": 145.0,
+      "speed": 0.4,
+      "duration": 17.433
+    },
+    {
+      "file": "hl2_16_s5_ride_out.mp4",
+      "label": "s5_ride_out",
+      "source": "vifdeo_1.mp4",
+      "start": 146.0,
+      "end": 149.0,
+      "speed": 1.0,
+      "duration": 3.0
+    },
+    {
+      "file": "hl2_17_s5_kite_finale.mp4",
+      "label": "s5_kite_finale",
+      "source": "video_4.mp4",
+      "start": 16.0,
+      "end": 19.0,
+      "speed": 0.7,
+      "duration": 4.2
+    }
+  ]
+}
