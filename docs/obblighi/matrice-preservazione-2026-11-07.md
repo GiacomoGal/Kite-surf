@@ -79,7 +79,7 @@ Verifica di chiusura: per ogni ID, la posizione nuova esiste e contiene l'obblig
 | OB-S26 | Script npm: `start` = `remotion studio`; `preview` = `remotion preview`; `build` e `render` = `remotion render KitesurfVideo out/kitesurf.mp4` | `studio/package.json` | `README.md`; manuale. `build`/`render` restano sulla sola composizione `KitesurfVideo` |
 | OB-S27 | Pacchetto privato `kitesurf-studio` 1.0.0; Remotion fissato a 4.0.261 | `studio/package.json` | Manuale |
 | OB-S28 | `Config.setVideoImageFormat("jpeg")` e `Config.setOverwriteOutput(true)` | `studio/remotion.config.ts` | Manuale |
-| OB-S29 | Composizioni `KitesurfVideo`, `HighlightReel`, `HighlightV2`; 1080×1920; 30 fps; durata = somma delle durate del manifest statico | `studio/src/Root.tsx` | Manuale |
+| OB-S29 | Composizioni `KitesurfVideo`, `HighlightReel`, `HighlightV2`; 1080×1920; 30 fps. `Root.tsx` arrotonda una volta `Math.ceil(somma durate * 30)`. Le timeline interne accumulano `Math.ceil(durata * 30)` per clip | `studio/src/Root.tsx` righe 12-22; `KitesurfVideo` 30-34; `HighlightReel` 193-196; `HighlightV2` 192-199 | Manuale «Studio Remotion». Le due quantità restano distinte; nessuna durata di render è certificata sulla loro uguaglianza |
 | OB-S30 | File statici: `scenes/{file}`, `highlight/{file}`, `highlight_v2/{file}` | le tre composizioni | Manuale |
 | OB-S31 | Schermate vuote: «Run detect_scenes.py first», «Run build_highlight.py first», «Run build_highlight_v2.py first» | le tre composizioni | Manuale |
 | OB-S32 | Transizioni v1 per etichetta (WhipPan, FlashCut, ZoomPunch, CrossDissolve) e durate 20 / 6 / 10 frame, fade in 15, fade finale 20 | `HighlightReel.tsx` | Manuale v1 |
@@ -87,7 +87,7 @@ Verifica di chiusura: per ogni ID, la posizione nuova esiste e contiene l'obblig
 | OB-S34 | Video intero: ciclo Crossfade, Zoom, Flash; 15 frame di transizione | `KitesurfVideo.tsx` e i tre effect | Manuale |
 | OB-S35 | I manifest Remotion sono import statici. Il commento in `scenes.ts` prevede uno script di sync; nel checkout quello script non c'è | `studio/src/data/scenes.ts` | `README.md`; manuale. L'import statico è la procedura. Lo script assente resta un'intenzione annotata |
 | OB-S36 | Commento «portrait 612x1080 (upscaled from 480p)» | `scenes.ts` | Manuale: è il commento del file. La prova ffprobe sui raw misura 848×480. Gli upscale non sono nel checkout, quindi 612×1080 non è una misura di questa ispezione |
-| OB-S37 | Gli estrattori usano `-an` | i quattro script Python | Manuale. I raw misurati hanno una traccia audio |
+| OB-S37 | `-an` in `detect_scenes.py` e nei due builder. `upscale.py` non passa `-an` in `reassemble_video` né in `upscale_ffmpeg_only` | `scripts/detect_scenes.py`, `scripts/build_highlight.py`, `scripts/build_highlight_v2.py`, `scripts/upscale.py` | Manuale «Audio» e fallback lanczos. I raw misurati hanno una traccia audio. Le scene di `detect_scenes.py` sono già senza audio; questo non è un flag di `upscale.py` |
 | OB-S38 | `objectFit: cover` sul video nelle tre composizioni | composizioni | Manuale |
 | OB-S39 | Il commento del crossfade parla di overlap; l'aritmetica dei frame accoda le `Sequence` | `CrossfadeTransition.tsx`, composizioni | Manuale, entrambi i fatti |
 | OB-S40 | Il sorgente si chiama `vifdeo_1.mp4` | git, `CLIPS`, manifest | `README.md`; manuale. Lo spelling è quello usato dalle liste |
@@ -100,5 +100,7 @@ Verifica di chiusura: per ogni ID, la posizione nuova esiste e contiene l'obblig
 ## Verifica del 2026-11-07
 
 Controllo eseguito sui documenti di questo aggiornamento, dopo la scrittura: ogni ID da OB-R01 a OB-H02 ha una posizione nuova nella tabella e il testo collegato contiene il fatto (comando, path, parametro o esito). I file di codice, `.gitignore`, i lockfile, i manifest JSON e i media non sono stati modificati.
+
+OB-S29 e OB-S37 sono stati riallineati alle fonti nello stesso giorno, dopo il confronto con `Root.tsx`, le tre composizioni e `upscale.py`. La formulazione precedente fondeva l'arrotondamento di `Root.tsx` con quello per clip, e attribuiva `-an` anche a `upscale.py`.
 
 La verifica non è un render. Il dettaglio dei comandi eseguiti e non eseguiti è in `docs/prove/2026-11-07-ispezione-checkout.md`.

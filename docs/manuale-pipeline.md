@@ -1,6 +1,6 @@
 # Manuale della pipeline Kite-surf
 
-Norma operativa del checkout. Il README tiene la procedura operatore in inglese. Qui stanno i parametri, i percorsi e gli esiti già scritti nei commit. Le prove del 2026-11-07 sono in [../prove/2026-11-07-ispezione-checkout.md](../prove/2026-11-07-ispezione-checkout.md). La mappa degli obblighi è in [../obblighi/matrice-preservazione-2026-11-07.md](../obblighi/matrice-preservazione-2026-11-07.md).
+Norma operativa del checkout. Il README tiene la procedura operatore in inglese. Qui stanno i parametri, i percorsi e gli esiti già scritti nei commit. Le prove del 2026-11-07 sono in [prove/2026-11-07-ispezione-checkout.md](prove/2026-11-07-ispezione-checkout.md). La mappa degli obblighi è in [obblighi/matrice-preservazione-2026-11-07.md](obblighi/matrice-preservazione-2026-11-07.md).
 
 Gli script non hanno argomenti. Cartelle e liste clip sono nel sorgente. Le directory di lavoro sono calcolate da `Path(__file__).parent.parent`.
 
@@ -139,7 +139,7 @@ Selezione di Real-ESRGAN:
 - Binario selezionato: estrazione PNG con `qscale:v 2`, `realesrgan` con modello `realesrgan-x4plus`, scala `4`, formato png, poi riassemblaggio all'fps della sorgente, `scale=-2:1080`, libx264, CRF 16, preset slow, `yuv420p`. `.tmp_frames` è cancellato dopo ogni scena.
 - Il commento sopra `SCALE_FACTOR` cita anche un'ipotesi 2× da 480p (960p) con pad o crop a 1080p. Il valore assegnato ed eseguito è `4` (4×, poi scala ad altezza 1080).
 
-Fallback lanczos: `scale=-2:1080:flags=lanczos`, libx264, CRF 16, preset slow, `yuv420p`, senza audio.
+Fallback lanczos: `scale=-2:1080:flags=lanczos`, libx264, CRF 16, preset slow, `yuv420p`. L'argv di `upscale_ffmpeg_only` non contiene `-an`. Nemmeno `reassemble_video`.
 
 Altezza target: 1080. Il fattore `-2` conserva il rapporto e arrotonda la larghezza. Questo manuale non aggiunge un URL di download né un installer.
 
@@ -160,7 +160,13 @@ Comandi, da `studio/`:
 
 `build` e `render` producono `studio/out/kitesurf.mp4` e nominano solo `KitesurfVideo`. `HighlightReel` e `HighlightV2` sono registrate in `studio/src/Root.tsx`. L'anteprima indicata dal README è `npm start`.
 
-Tre composizioni, tutte a 30 fps, canvas 1080×1920. La durata in frame è la somma delle durate del manifest statico, arrotondata per clip con `Math.ceil(durata * 30)`.
+Tre composizioni, tutte a 30 fps, canvas 1080×1920.
+
+In `studio/src/Root.tsx` la `durationInFrames` di ciascuna composizione è `Math.ceil` della somma delle durate del manifest statico moltiplicata per 30, poi `Math.max` con 1. L'arrotondamento sul totale è uno solo (`Root.tsx`, calcolo nelle righe 12-22).
+
+Le timeline interne accumulano un `Math.ceil(durata * 30)` per clip: `KitesurfVideo` (righe 30-34), `HighlightReel` (righe 193-196), `HighlightV2` (righe 192-196, con `totalFrames` uguale a quell'accumulo alla riga 199).
+
+Le due quantità restano distinte. Questo manuale non le dichiara uguali e non certifica da qui una durata di render.
 
 `KitesurfVideo` legge `staticFile("scenes/" + file)`. Senza scene mostra «Run detect_scenes.py first». Transizioni in ciclo: `CrossfadeTransition`, `ZoomTransition`, `FlashTransition`, 15 frame in coda a ogni scena tranne l'ultima. Il commento in `CrossfadeTransition.tsx` descrive un overlap con la scena successiva. Il calcolo dei frame accoda le `Sequence`: la transizione agisce sugli ultimi frame della scena uscente.
 
@@ -204,7 +210,13 @@ Questi fatti sono nei commit. Gli script del checkout non contengono un passaggi
 
 ## Audio
 
-I quattro estrattori passano `-an`. I prodotti della pipeline non portano la traccia audio. I raw misurati il 2026-11-07 hanno una traccia audio ciascuno.
+`detect_scenes.py`, `build_highlight.py` e `build_highlight_v2.py` passano `-an` sugli ffmpeg che estraggono o ricodificano il video.
+
+`upscale.py` non passa `-an`: né `reassemble_video` né `upscale_ffmpeg_only` lo includono nell'argv. Il percorso AI riassembla PNG, quindi l'ingresso di quel ffmpeg sono frame, non il filmato di scena.
+
+Le scene scritte da `detect_scenes.py` sono già senza audio, perché quello script passa `-an`. Un upscale di quelle scene può uscire senza traccia audio per questo motivo. Il fatto vale per quell'ingresso. Non è un flag dentro `upscale.py` e non descrive un input qualunque.
+
+I raw misurati il 2026-11-07 hanno una traccia audio ciascuno.
 
 ## Segreti
 

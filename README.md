@@ -51,7 +51,7 @@ python3 scripts/build_highlight_v2.py
 python3 scripts/upscale.py
 ```
 
-They take no arguments. Extracts drop the audio track (`-an`).
+They take no arguments. `detect_scenes.py`, `build_highlight.py`, and `build_highlight_v2.py` pass `-an`. `upscale.py` does not.
 
 The Remotion modules in `studio/src/data/` are static copies. The Python scripts do not rewrite them. `scenes.ts` notes an intended manifest-sync script; no such script is in this checkout. The static import is the current path.
 
